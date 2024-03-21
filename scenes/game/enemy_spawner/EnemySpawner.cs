@@ -40,8 +40,9 @@ public partial class EnemySpawner : Node2D
     }
 
     var enemy = GD.Load<PackedScene>("res://entities/enemy/BaseEnemy.tscn").Instantiate();
-    enemyPath.AddChild(enemy);
     enemiesSpawned++;
+    enemy.Name = "Enemy " + enemiesSpawned;
+    enemyPath.AddChild(enemy);
     GD.Print("Spawning enemy: ", enemiesSpawned, " out of ", EnemiesToSpawn);
   }
 

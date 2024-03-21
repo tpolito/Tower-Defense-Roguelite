@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class BaseUnit : Node2D
 {
   private Area2D AggroArea;
   private PathFollow2D currentTarget;
+  private readonly List<PathFollow2D> targetList = new();
   private Timer attackTimer;
   private Tween _tween;
   private Vector2 _originalScale;
@@ -36,16 +38,22 @@ public partial class BaseUnit : Node2D
 
   public void OnAggroAreaAreaEntered(Node area)
   {
-    currentTarget ??= area.GetParent<BaseEnemy>();
+    targetList.Add(area.GetParent<PathFollow2D>());
+    currentTarget ??= targetList[0];
     Attack(); // Initial attack
     attackTimer.Start();
   }
 
   public void OnAggroAreaAreaExited(Node area)
   {
-    if (area.GetParent<BaseEnemy>() == currentTarget)
+    targetList.Remove(area.GetParent<PathFollow2D>());
+    if (targetList.Count == 0)
     {
       currentTarget = null;
+    }
+    else
+    {
+      currentTarget = targetList[0];
     }
   }
 
