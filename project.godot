@@ -23,6 +23,7 @@ project/assembly_name="td-rpg"
 
 2d_physics/layer_1="Units"
 2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Abilities"
 
 [rendering]
 

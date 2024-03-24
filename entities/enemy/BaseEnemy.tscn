@@ -1,13 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://4gdfukl3guu8"]
+[gd_scene load_steps=7 format=3 uid="uid://4gdfukl3guu8"]
 
 [ext_resource type="Script" path="res://entities/enemy/BaseEnemy.cs" id="1_rgig6"]
 [ext_resource type="Texture2D" uid="uid://chep3dgygqiry" path="res://assets/placeholder_units.png" id="2_l7f0b"]
+[ext_resource type="PackedScene" uid="uid://ukmh5knjhf7l" path="res://scenes/hit_detection/hurtbox/Hurtbox.tscn" id="3_jqmoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fhbme"]
 atlas = ExtResource("2_l7f0b")
 region = Rect2(63.4926, 0.456003, 16.2157, 16.2157)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0orx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xtxj"]
+radius = 11.0
 
 [node name="BaseEnemy" type="PathFollow2D"]
 z_index = 2
@@ -24,10 +28,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CircleShape2D_d0orx")
 
-[node name="TargetLabel" type="Label" parent="."]
-visible = false
-offset_left = -26.0
-offset_top = -28.0
-offset_right = 24.0
-offset_bottom = -5.0
-text = "Target"
+[node name="Hurtbox" parent="." instance=ExtResource("3_jqmoa")]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+shape = SubResource("CircleShape2D_6xtxj")
+
+[editable path="Hurtbox"]

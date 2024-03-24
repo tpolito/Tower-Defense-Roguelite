@@ -67,6 +67,12 @@ public partial class BaseUnit : Node2D
 
   public void Attack()
   {
+    var projectileScene = GD.Load<PackedScene>("res://entities/projectiles/base_projectile/BaseProjectile.tscn");
+    var projectileInstance = projectileScene.Instantiate<BaseProjectile>();
+
+    projectileInstance.Position = currentTarget.GlobalPosition;
+
+    AddChild(projectileInstance);
     GD.Print("Attacking ", currentTarget.Name);
     attackTimer.Start();
   }

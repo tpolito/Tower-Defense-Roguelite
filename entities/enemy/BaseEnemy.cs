@@ -4,20 +4,23 @@ using System;
 
 public partial class BaseEnemy : PathFollow2D
 {
-  private Label targetLabel;
+  private Hurtbox hurtbox;
   // Called when the node enters the scene tree for the first time.
   private Tween _tween;
   private const float RotationAng = Mathf.Pi / 10;
   public override void _Ready()
   {
     // On Ready
-    targetLabel = GetNode<Label>("TargetLabel");
+    hurtbox = GetNode<Hurtbox>("Hurtbox");
     // Tween
     _tween = CreateTween();
     _tween.SetLoops();
     _tween.TweenProperty(this, "rotation", RotationAng, 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
     _tween.TweenProperty(this, "rotation", -RotationAng, 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
     _tween.TweenProperty(this, "rotation", 0, 0.5f).SetTrans(Tween.TransitionType.Sine).SetEase(Tween.EaseType.InOut);
+
+    // Connect signals
+    hurtbox.Hit += OnHurtboxHit;
   }
 
   // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,8 +33,8 @@ public partial class BaseEnemy : PathFollow2D
     }
   }
 
-  public void ToggleTarget()
+  public void OnHurtboxHit(int damage)
   {
-    targetLabel.Visible = !targetLabel.Visible;
+    GD.Print("Ouch! ", damage, " damage!");
   }
 }
