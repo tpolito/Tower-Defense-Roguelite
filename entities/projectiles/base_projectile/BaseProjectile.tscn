@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://nwlxuw55cbar"]
 
-[ext_resource type="Script" path="res://entities/projectiles/base_projectile/BaseProjectile.cs" id="1_5mpxu"]
+[ext_resource type="Script" path="res://entities/projectiles/base_projectile/BaseProjectile.gd" id="1_n7w64"]
 [ext_resource type="Texture2D" uid="uid://cnnmcw5wm5i1b" path="res://assets/placeholder_attacks.png" id="1_th08j"]
 [ext_resource type="PackedScene" uid="uid://clbmg8wcybwlv" path="res://scenes/hit_detection/hitbox/Hitbox.tscn" id="3_nm8lt"]
 
@@ -14,7 +14,7 @@ height = 18.0
 
 [node name="BaseProjectile" type="Node2D"]
 rotation = 1.57141
-script = ExtResource("1_5mpxu")
+script = ExtResource("1_n7w64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -0.785398

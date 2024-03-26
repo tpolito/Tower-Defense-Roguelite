@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://4gdfukl3guu8"]
 
-[ext_resource type="Script" path="res://entities/enemy/BaseEnemy.cs" id="1_rgig6"]
+[ext_resource type="Script" path="res://entities/enemy/BaseEnemy.gd" id="1_xqfhk"]
 [ext_resource type="Texture2D" uid="uid://chep3dgygqiry" path="res://assets/placeholder_units.png" id="2_l7f0b"]
 [ext_resource type="PackedScene" uid="uid://ukmh5knjhf7l" path="res://scenes/hit_detection/hurtbox/Hurtbox.tscn" id="3_jqmoa"]
 
@@ -16,7 +16,7 @@ radius = 11.0
 [node name="BaseEnemy" type="PathFollow2D"]
 z_index = 2
 loop = false
-script = ExtResource("1_rgig6")
+script = ExtResource("1_xqfhk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_fhbme")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba177oprvn7h1"]
 
-[ext_resource type="Script" path="res://scenes/game/enemy_spawner/EnemySpawner.cs" id="1_6847x"]
+[ext_resource type="Script" path="res://scenes/game/enemy_spawner/EnemySpawner.gd" id="1_iwvlf"]
 
 [sub_resource type="Curve2D" id="Curve2D_637rf"]
 _data = {
@@ -9,7 +9,8 @@ _data = {
 point_count = 6
 
 [node name="EnemySpawner" type="Node2D"]
-script = ExtResource("1_6847x")
+script = ExtResource("1_iwvlf")
+enemies_to_spawn = 2
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = SubResource("Curve2D_637rf")

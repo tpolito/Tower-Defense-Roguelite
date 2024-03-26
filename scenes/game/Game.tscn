@@ -35,13 +35,13 @@ text = "Game"
 [node name="World" parent="." instance=ExtResource("1_h2ap6")]
 
 [node name="MainCamera" type="Camera2D" parent="."]
-position = Vector2(168, 133)
+position = Vector2(190, 155)
 zoom = Vector2(2.2, 2.2)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_adj4b")]
-EnemiesToSpawn = 3
+EnemiesToSpawn = 1
 SpawnInterval = 0.5
 
 [node name="BaseUnit" parent="." instance=ExtResource("3_g6hi3")]
-position = Vector2(133, 151)
+position = Vector2(108, 163)
 AggroRange = 50

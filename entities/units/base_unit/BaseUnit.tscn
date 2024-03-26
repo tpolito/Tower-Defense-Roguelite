@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djnlt48rstk7h"]
 
+[ext_resource type="Script" path="res://entities/units/base_unit/BaseUnit.gd" id="1_mecb7"]
 [ext_resource type="Texture2D" uid="uid://chep3dgygqiry" path="res://assets/placeholder_units.png" id="1_trywi"]
-[ext_resource type="Script" path="res://entities/units/base_unit/BaseUnit.cs" id="1_xxxac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47spd"]
 atlas = ExtResource("1_trywi")
@@ -11,7 +11,7 @@ region = Rect2(0, 32, 16, 16)
 radius = 29.0
 
 [node name="BaseUnit" type="Node2D"]
-script = ExtResource("1_xxxac")
+script = ExtResource("1_mecb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_47spd")
