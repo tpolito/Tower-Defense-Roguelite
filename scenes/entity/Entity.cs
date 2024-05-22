@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Entity : Node2D
 {
@@ -7,13 +8,15 @@ public partial class Entity : Node2D
   Vector2 startingAtlasPosition = new(0, 0);
   AnimatedSprite2D animatedSprite = new();
   SpriteFrames spriteFrames = new();
+  readonly List<string> animNames = new() { "idle", "walk", "attack", "hit", "die" };
+
   public override void _Ready()
   {
     GenerateAnimationFrames();
     animatedSprite.Play("walk");
   }
 
-  private string GetAnimationNameFromIndex(int index)
+  private static string GetAnimationNameFromIndex(int index)
   {
     if (index >= 0 && index <= 3)
     {
@@ -40,22 +43,14 @@ public partial class Entity : Node2D
       return "idle";
     }
   }
+
   private void GenerateAnimationFrames()
   {
-    spriteFrames.AddAnimation("idle");
-    spriteFrames.SetAnimationLoop("idle", true);
-
-    spriteFrames.AddAnimation("walk");
-    spriteFrames.SetAnimationLoop("walk", true);
-
-    spriteFrames.AddAnimation("attack");
-    spriteFrames.SetAnimationLoop("attack", true);
-
-    spriteFrames.AddAnimation("hit");
-    spriteFrames.SetAnimationLoop("hit", true);
-
-    spriteFrames.AddAnimation("die");
-    spriteFrames.SetAnimationLoop("die", true);
+    animNames.ForEach((animName) =>
+    {
+      spriteFrames.AddAnimation(animName);
+      spriteFrames.SetAnimationLoop(animName, true);
+    });
 
     Vector2 textureSize = new(16, 16);
     Texture2D texture = GD.Load<Texture2D>("res://assets/AllUnitsSpriteSheet.png");
