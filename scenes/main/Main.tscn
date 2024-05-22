@@ -4,7 +4,19 @@
 
 [node name="Main" type="Node2D"]
 
-[node name="Entity" parent="." instance=ExtResource("1_hsq33")]
-position = Vector2(142, 59)
+[node name="Node" type="Node" parent="."]
+
+[node name="Entity" parent="Node" instance=ExtResource("1_hsq33")]
+position = Vector2(224, 165)
 scale = Vector2(4, 4)
 startingAtlasPosition = Vector2(32, 32)
+
+[node name="Entity2" parent="Node" instance=ExtResource("1_hsq33")]
+position = Vector2(221, 77)
+scale = Vector2(4, 4)
+startingAtlasPosition = Vector2(32, 2080)
+
+[node name="Entity3" parent="Node" instance=ExtResource("1_hsq33")]
+position = Vector2(156, 179)
+scale = Vector2(4, 4)
+startingAtlasPosition = Vector2(32, 160)

@@ -8,12 +8,17 @@ public partial class Entity : Node2D
   Vector2 startingAtlasPosition = new(0, 0);
   AnimatedSprite2D animatedSprite = new();
   SpriteFrames spriteFrames = new();
+
+  readonly Random random = new();
   readonly List<string> animNames = new() { "idle", "walk", "attack", "hit", "die" };
 
   public override void _Ready()
   {
     GenerateAnimationFrames();
-    animatedSprite.Play("walk");
+    animatedSprite.AnimationFinished += () => GD.Print("Finished");
+    AddChild(animatedSprite);
+    string randAnimName = animNames[random.Next(0, 4)];
+    animatedSprite.Play(randAnimName);
   }
 
   private static string GetAnimationNameFromIndex(int index)
@@ -66,6 +71,5 @@ public partial class Entity : Node2D
       spriteFrames.AddFrame(animationName, atlasTexture);
     }
     animatedSprite.SpriteFrames = spriteFrames;
-    AddChild(animatedSprite);
   }
 }
