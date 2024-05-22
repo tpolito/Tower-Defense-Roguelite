@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://s8kilm2ylhfp"]
+[gd_scene load_steps=2 format=3 uid="uid://d3ehyg3vjbfik"]
 
-[ext_resource type="Script" path="res://scenes/main/Main.gd" id="1_loat2"]
+[ext_resource type="PackedScene" uid="uid://pulluhr4goe6" path="res://scenes/entity/Entity.tscn" id="1_hsq33"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_loat2")
+
+[node name="Entity" parent="." instance=ExtResource("1_hsq33")]
+position = Vector2(142, 59)
+scale = Vector2(4, 4)
+startingAtlasPosition = Vector2(32, 32)
